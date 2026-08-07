@@ -1,0 +1,12 @@
+INHERIT: ../base.yml
+site_url: http://docs
+
+extra_css:
+  - !ENV [USER_STYLESHEETS_PORTAL_SELECTION, "stylesheets/portal_selection.css"]
+  - !ENV [USER_STYLESHEETS_COLORS, "stylesheets/colors.css"]
+
+nav:
+  - "architecture.md"
+  - "resources.md"
+  - "migration_roadmap.md"
+  - "links.md"

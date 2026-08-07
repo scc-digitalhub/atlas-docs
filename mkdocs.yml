@@ -1,0 +1,44 @@
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+site_name: ATLAS Cluster
+
+repo_name: scc-digitalhub/atlas-docs
+repo_url: https://github.com/scc-digitalhub/atlas-docs
+
+extra:
+  site: https://scc-digitalhub.github.io/atlas-docs
+
+theme:
+  name: material
+  custom_dir: ./custom/
+  features:
+    # - navigation.expand
+    - navigation.path
+    - content.code.copy
+  palette:
+    # Palette toggle for light mode
+    - scheme: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+extra_css:
+  - !ENV [USER_STYLESHEETS_PORTAL_SELECTION, "stylesheets/portal_selection.css"]
+  - !ENV [USER_STYLESHEETS_COLORS, "stylesheets/colors.css"]
+
+nav:
+  - Architecture: "index.md"
+  - "resources.md"
+  - "migration_roadmap.md"
+  - "links.md"
+  
