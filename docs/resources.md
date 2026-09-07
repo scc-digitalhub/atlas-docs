@@ -6,25 +6,25 @@ When launching the jobs and services, the users may declare the types and amount
 
 The following set of rules is used by the management layer to assign resources to the jobs and services:
 
-1. **Workspaces**. Workspace resource configuration is explicit, defining the CPU, memory and storage amount. The configuration may be changed at any time, the workspace should be restarted. The disk space, however, **cannot be changed**. 
+1. **Workspaces**. Workspace resource configuration is explicit, defining the CPU, memory and storage amount. The configuration may be changed at any time, the workspace should be restarted. The disk space, however, **cannot be changed**.
 
 2. **Jobs and Services**. For the jobs and services the resource declaration may be done explicity or through profilies:
-   
+
 - If no resource constraints are explicitly defined by the user, the default values are used for CPU, memory, and disk space. Specifically,
     - No GPU resources are assigned by default.
     - The default amount of memory is X Gb.
     - By default, the CPU usage is set to X core.
     - The default amount of disk space is X Gb.
 - The user can define explicitly the **requested** amount of CPU, memory, and disk space. The max amount of CPU and memory is then set to 110% of that amount.
-- To use GPUs the user should use the predefined profile defined in the cluster configuration. The profile defines the type and number of GPUs to be requested, as well as some other predefined values preconfigured according to the HW layout (e.g., memory and cores). While the profile defines the **maximum** amount of resources allocated to the job, the user can still define the **requested** amount (which is good to reduce the quota usage of the tenant). 
+- To use GPUs the user should use the predefined profile defined in the cluster configuration. The profile defines the type and number of GPUs to be requested, as well as some other predefined values preconfigured according to the HW layout (e.g., memory and cores). While the profile defines the **maximum** amount of resources allocated to the job, the user can still define the **requested** amount (which is good to reduce the quota usage of the tenant).
 
-See below the list of the currently defined profiles. 
+See below the list of the currently defined profiles.
 
 !!! Note
     The list of profiles and their characteristics is subject to change upon the migration of the cluster and changes in the HW setup.
 
 !!! Note
-    The list of profiles available to a single unit may vary. The list of the profiles available in the tenant may be obtained from the management layer using SDK or UI. 
+    The list of profiles available to a single unit may vary. The list of the profiles available in the tenant may be obtained from the management layer using SDK or UI.
 
 | **Profile** | **GPU type** | **Compute Capability** | **GPU count** | **VRAM per GPU** | **Max CPU** | **Max Memory** | **Max Ephimeral Disk** |
 |--------------|-------------|---------------|-------------|---------------|---------------|--------------|-------------|
@@ -46,27 +46,77 @@ See below the list of the currently defined profiles.
 
 ## Quotas
 
-The execution resources are shared between all tenants. The usage of resources is limited by the quota assigned to each tenant. We define two types of resource limits:
+Execution resources are shared across tenants, and each tenant is assigned a resource quota. The platform treats storage limits and computational resource allocations differently:
 
-- the resources that cannot be exceeded (fixed quota). This includes the **total number of PVCs** (Persistent Volume Claims), the **amount of S3 storage** assigned to the tenant, the **amount of PVC storage** used by the tenant. 
-- the resources that can be exceeded (overbooking scenario). This includes for examply, memory, CPU, GPU, ephimeral storage, etc.
+- **Hard limits** cannot be exceeded. They apply to the number of Persistent Volume Claims (PVCs), PVC storage, and S3 storage. A request that would exceed one of these limits is rejected.
+- **Computational allocations** cover CPU, memory, GPU, and ephemeral storage. Workloads can use the tenant's allocated capacity through the reserved queue or request currently unused capacity through the shared queue.
 
-When launching jobs, services, and workspaces the following rules are applied:
+To view the resources assigned to a tenant and its current usage, open the [ATLAS monitoring dashboard](https://observability.atlas.fbk.eu/). You must sign in with your FBK account.
 
-- If the total amount of resources used by the workloads of the tenant does not exceed the quota, the new workloads will be started/executed successfully.
-- If with the new workload the amount of fixed resources exceeds the quota, the new workload will be rejected.
-- If with the new workload the amount of overbooking resources exceeds the quota, and there are no free resources available on the whole cluster, the new workload will be rejected.
-- If with the new workload the amount of overbooking resources exceeds the quota, and there are free resources available on the whole cluster, the new workload will be started/executed successfully. This is called **overbooking scenario**. However, if the other tenants start workloads within their quotas and there are no free resources available on the whole cluster, the overbooked workload will be preempted: the jobs will return to the queue and pass to pending state, while the services will be stopped.
+### Workload queues
 
-To see the status of the resources/quota used by/assigned to the tenant, use the corresponding monitoring dashboard.
+The platform provides two ways to run computational workloads: a **reserved queue** and a **shared queue**. Select the appropriate execution option in the workload submission interface; queue placement and resource management are handled automatically.
 
-The full list of quotas and default values is presented in the following table.
+!!! warning
+    Every workload submitted to the shared queue is interruptible and can be evicted at any time. Use it only for workloads that can tolerate termination and restart.
 
-| **Resource** | **Value** | **Fixed** | **Description** |
-|--------------|-----------|-----------------|-----------------|
-| **PVC Storage** | 4Tb | yes | Amount of storage for Persistent Volume claims used by workspaces and jobs/services |
-| **PVCs**     | 50  | yes | Number of PVCs used by workspaces and jobs/services |
-| **S3** | 4Tb | yes | Amount of S3 storage used by workspaces and jobs/services |
-| **Memory** | 128Gb | no | Amount of memory used by workspaces and jobs/services |
-| **CPU** | 40 cores | no | Amount of CPU cores used by workspaces and jobs/services |
-| **GPU** | 2 | no | Amount of GPU used by workspaces and jobs/services |
+#### Reserved queue
+
+The reserved queue uses resources allocated to the research group or project. This capacity is protected from permanent use by other groups.
+
+- Reserved workloads have higher scheduling priority than shared workloads.
+- If allocated resources are temporarily being used by shared workloads, the platform can reclaim them for reserved workloads.
+- This queue is appropriate for important batch workloads and workloads that should not depend on spare capacity.
+
+Reserved capacity does not guarantee an immediate start. A workload remains pending if it requests more resources than are currently available, requires an unavailable resource type, or is waiting behind other reserved work.
+
+#### Shared queue
+
+The shared queue provides opportunistic access to resources that are currently unused by their owners. It improves overall platform utilization but provides no continuity guarantee.
+
+- Shared workloads use spare capacity and do not own or reserve resources.
+- They have lower scheduling priority than reserved workloads.
+- Their start time depends on spare capacity being available.
+- A running shared workload can be stopped when its capacity is needed for reserved work.
+
+After eviction, a workload may return to a pending state and restart when sufficient spare capacity becomes available. The exact restart behavior depends on the workload type and the platform abstraction used to submit it.
+
+Shared workloads should be restartable and idempotent, persist outputs outside the running instance, and checkpoint progress when supported. Do not use the shared queue for services or jobs that require uninterrupted execution.
+
+#### Queue comparison
+
+| **Property** | **Reserved queue** | **Shared queue** |
+|--------------|--------------------|------------------|
+| **Resource source** | Allocated project or group resources | Temporarily unused platform resources |
+| **Resource ownership** | Allocated capacity | No allocated capacity |
+| **Workload priority** | Higher | Lower |
+| **Can reclaim shared capacity** | Yes | No |
+| **Interruption expectation** | Does not depend on spare capacity | Possible at any time |
+| **Recommended use** | Important or continuity-sensitive batch work | Fault-tolerant, restartable, best-effort work |
+
+#### Choosing a queue
+
+Choose the **reserved queue** when the workload is important, has limited restart support, or needs the resources allocated to the project.
+
+Choose the **shared queue** when the workload is restartable and the benefit of using additional spare resources outweighs the risk of interruption. Suitable examples include parameter sweeps, independent simulations, and jobs that save frequent checkpoints.
+
+For shared workloads:
+
+- Save results and checkpoints to persistent storage, not only to the running instance's local filesystem.
+- Make processing restartable and, where possible, idempotent.
+- Split long computations into smaller independent units.
+- Do not rely on a specific start time or uninterrupted execution window.
+- Expect duplicate or partial work around an interruption and handle it safely.
+
+### Default quotas
+
+The following table lists the default quota values. The quotas available to a specific tenant may differ (check the monitoring dashboard to see assigned quotas).
+
+| **Resource** | **Default value** | **Hard limit** | **Description** |
+|--------------|-------------------|----------------|-----------------|
+| **PVC Storage** | 4 TB | Yes | Persistent Volume Claim storage used by workspaces, jobs, and services |
+| **PVCs** | 50 | Yes | Number of Persistent Volume Claims used by workspaces, jobs, and services |
+| **S3** | 4 TB | Yes | S3 storage used by workspaces, jobs, and services |
+| **Memory** | 128 GB | No | Memory allocated to the tenant for reserved workloads |
+| **CPU** | 40 cores | No | CPU cores allocated to the tenant for reserved workloads |
+| **GPU** | 2 | No | GPUs allocated to the tenant for reserved workloads |
