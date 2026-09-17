@@ -16,18 +16,46 @@ When migrated, all the data on the servers will be deleted. To avoid losing the 
 
 In the latter case it is necessary to use the corresponding S3 credentials for accessing the Datalake. If the AI platform instance is already in place for the unit, it is possible to use the personal S3 credentials. To obtain the credentials, use the [management layer CLI](https://scc-digitalhub.github.io/docs/cli/installation/) as presented [here](https://scc-digitalhub.github.io/docs/0.15/cli/usage/#obtaining-configuration-and-credentials).
 
-Once credentials are available, it is possible to use tools like [rclone](https://rclone.org/install/) or [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) for this, for example:
+
+As quick reference, login to the platform 
+```bash
+dhcli login dev-platform
+```
+
+and then fetch both credentials and config into a local `.env` file (and load with `source` into the current shell)
+```bash
+dhcli config > dev-platform.env
+dhcli credentials >> dev-platform.env
+set -a && source dev-platform.env && set +a
+```
+
+Now you can use the environment files to configure any compatible tools like [rclone](https://rclone.org/install/) or [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) for this.
+
+For example the official aws client will automatically load all config from the environment:
 
 ```bash
 aws s3 sync <LOCAL_FOLDER> s3://<BUCKET_NAME>/path/to/folder 
 ```
 
-Alternatively, it is possible to use the functionality of the AI platform catalog for uploading the datasets and artifacts:
+
+With rclone (version 1.72+ only) the only required param is `--s3-env-auth=true` to instruct the client in using the enviroment as source for configuration and credentials.
+```sh
+rclone --s3-env-auth=true copy  --progress <LOCAL_FOLDER> ":s3:<BUCKET_NAME>/path/to/folder"
+```
+
+
+Or with the platform cli directly. In this case the uploaded files will be also registered as named entities in the catalog.
+```bash
+dhcli upload -p myproject artifact -n myfolder -f folder
+```
+
+
+Alternatively, it is possible to use the functionality of the AI platform SDK for uploading the datasets and artifacts:
 
 ```python
 import digitalhub as dh
 
-project = dh.get_or_create_project("datasets")
+project = dh.get_or_create_project("myproject")
 
 project.log_artifact("mydataset", kind="artifact", source="./path/to/folder/or/file/")
 
