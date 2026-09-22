@@ -7,7 +7,7 @@
 - Management layer: https://core.<tenant>.atlas.fbk.eu/
 - Resource usage Monitoring: https://monitoring.<tenant>.atlas.fbk.eu/
 
-## AI Platform documentatino
+## AI Platform documentation
 
 - [AI Platform documentation](https://scc-digitalhub.github.io/docs/): entry point for the AI Platform documentation
 - [Python SDK](https://scc-digitalhub.github.io/sdk-docs/): Python SDK for the AI Platform
