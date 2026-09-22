@@ -1,0 +1,673 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="resources/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>ATLAS Cluster</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/portal_selection.css">
+    
+      <link rel="stylesheet" href="stylesheets/colors.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="orange" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#atlas-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+
+    <!-- Link to home -->
+    <a
+      href="."
+      title="ATLAS Cluster"
+      class="md-header__button md-logo"
+      aria-label="ATLAS Cluster"
+      data-md-component="logo"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATLAS Cluster
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="orange" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+      <div class="md-header__source">
+        <a href="https://github.com/scc-digitalhub/atlas-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    scc-digitalhub/atlas-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="ATLAS Cluster" class="md-nav__button md-logo" aria-label="ATLAS Cluster" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ATLAS Cluster
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/scc-digitalhub/atlas-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    scc-digitalhub/atlas-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functionality-and-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functionality and Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functionality and Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-workspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Workspaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computation-intensive-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation-intensive Jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources and Quotas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="migration_roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration and Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful Links and Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functionality-and-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functionality and Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functionality and Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-workspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interactive Workspaces
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computation-intensive-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation-intensive Jobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Services
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="atlas-architecture">ATLAS Architecture</h1>
+<p>The ATLAS Cluster is build upon HW resources from old ATLAS and ABACUS clusters of DIGIS/AI and DHW centers respectively. It integrates the following types of infrastructure made available to the research units:</p>
+<ul>
+<li>different types of GPU nodes (including V100, A40, L40, H100, H200, A5000, A6000 PRO, etc);</li>
+<li>CPU nodes</li>
+<li>storage infrastructure</li>
+</ul>
+<p>Please note that currently the state of new unified ATLAS architecture is under development; new nodes are gradually added to the cluster. It is expected to complete the fusion of all the infrastructure by the end of 2026. See the details about migration plan and roadmap in the <a href="migration_roadmap/">Migration Plan</a> section.</p>
+<p>The logical architecture of the ATLAS Cluster is shown in the figure below:</p>
+<p><img alt="ATLAS architecture" src="images/architecture.png" title="ATLAS architecture" /></p>
+<p>The architecture relies on the following building blocks:</p>
+<ul>
+<li><strong>Execution Platform</strong>, that takes care of running jobs, deploying supporting services and apps, run interactive workspaces. The platform relies on 
+  <a href="https://kubernetes.io/">Kubernetes</a> for the resource and workload management, and is extended with necessary instruments for scheduling and queueing. The execution platform is deployed on top of the HW resources of the integrated ATLAS and ABACUS cluster.</li>
+<li><strong>Persistent Data Storage</strong> implemented with S3-compatible Datalake and a relational Database (<a href="https://www.postgresql.org/">PostgreSQL</a>) and its extensions (spatial data, vector storage). All the relevant data managed by the research units should be stored here.</li>
+<li><strong>Interactive Workspaces</strong> that allow to create and run interactive sessions (e.g., JupyterLab, VSCode). The interactive workspaces are deployed on top of the same HW resources and managed by the execution platform.</li>
+<li><strong>Management Layer</strong> (DH Core) that provides the necessary interface to launch and monitor the jobs and services in the execution platform. Together with other supporing components, the management layer forms a complete AI / MLOps platform for the development of AI applications. As such it also includes such functionality as the catalog of datasets, models and artifacts, support for experiments tracking, low-code/no-code development, etc. The interactions with the management layer may be performed through the web interface, the command line interface (CLI), or the dedicated Python SDK.</li>
+</ul>
+<h2 id="organization">Organization</h2>
+<p>The logical architecture is instantiated as a multi-tenant environment, where <strong>each research unit has a dedicated and isolated platform instance</strong>. More specifically, each tenant</p>
+<ul>
+<li>has its own isolated storage space;</li>
+<li>has its own isolated management layer;</li>
+<li>manages its own interactive workspaces, services and jobs within a dedicated execution platform namespace;</li>
+<li>has its own set of users corresponding to the research unit members.</li>
+</ul>
+<p>The execution resources are shared between all tenants. The usage of resources is limited by the quota assigned to each tenant. See <a href="resources/">Resources and Quotas</a> for details on how the quotas are managed, how the resources are assigned and how the jobs are scheduled within the execution platform.</p>
+<p>When accessisng the components of the platform (either through the WEB interfaces, CLI or SDK), the users are authenticated using the FBK login credentials. The access to the datalake is based on personal session token credentials emitted by the management layer. The database storage is not available outside the cluster. The interactive workspaces are also personal and are connected to the management layer and storages automatically.</p>
+<p>The endpoints of the tenant platform components are available through the <code>https://*.&lt;tenant&gt;.atlas.fbk.eu</code> domain, for example:</p>
+<ul>
+<li>Management layer UI: <code>https://core.&lt;tenant&gt;.atlas.fbk.eu</code></li>
+<li>Interactive workspace manager: <code>https://coder.&lt;tenant&gt;.atlas.fbk.eu</code></li>
+</ul>
+<p>The name of the tenant corresponds to the research unit name.</p>
+<p>Please note that the cluster is available only within the FBK network. To access the cluster outside of this network, it is necessary to access it via a VPN connection. See a <a href="https://howto.fbk.eu/documenti/zero-trust-vpn/">dedicated FBK HowTo</a> section on this topic.</p>
+<h2 id="functionality-and-operations">Functionality and Operations</h2>
+<p>The goal of the platform is to support the development and execution of the computation intensive AI solutions and experiments, ranging from data processing and analysis to model training, to inference, and to prototyping complex ML/AI applications (e.g., RAG applications, inference services, etc). Given its functionality the platform users can perform the following operations.</p>
+<h3 id="interactive-workspaces">Interactive Workspaces</h3>
+<p>It is possible to create and run <strong>interactive sessions</strong> directly on top of the execution platform using its resources. Specifically, the users can create one or more <strong>personal</strong> interactive workspaces that are instantiated on top of the HW resources of the execution platform. Once configured and started, the users can access the interactive workspaces through the JupyterLab interface, VS Code Web interface, or from the VS Code environment on own PC using the corresponding integration support.</p>
+<p>The interactive workspaces are automatically connected to the other components of the platform: they have the personal user credentials to access the management layer and the data storage. The users can configure the workspace resources (disk size, memory, CPU or even GPU usage), within the quotes associated to the tenant they belong to. </p>
+<p>The workspaces may be started and stopped by the users at any time. The workspace storage is isolated and persistent. However, theno backup is performed so do not rely on it for the critical data persistence.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While it is possible to assign significant resource amount to workspaces and even associate basic GPUs to it, please note that the resources are shared between all tenants and the usage is limited by the quota assigned to each tenant. See <a href="resources/">Resources and Quotas</a> for more details.</p>
+</div>
+<h3 id="computation-intensive-jobs">Computation-intensive Jobs</h3>
+<p>A typical and the most common scenario is to use the cluster to run research experiments that require specific hardware resources (e.g., memory, GPU, etc). As it was happening in the old cluster, such experiments are represented as a Job (represented e.g., as a Docker comtainer) that the user launches on the execution platform to perform some model training, batch processing, benchmarking, etc.</p>
+<p>There are some significant changes with respect to the old modality of using the clusters:</p>
+<ul>
+<li>The execution of a job is not triggered directly by the user, but is intermediated by the management layer. In fact, the users of the platform <strong>never</strong> access the HW resources directly. Instead, using the management layer it is necessary to provide the declarative specification of the executable (e.g., container to be executed) and the execution configuration, such as execution parameters/arguments, the resources to be associated, etc. The management layer will prepare the job and schedule it on the execution platform passing the necessary information. The management layer and its interfaces may be used to monitor the execution, see the execution log, resource consumption, and status.</li>
+<li>Each job starts from scratch, with <strong>empty storage space</strong>. When the job completes, the resources are released and the storage is cleared. This means that, if the job uses some data or produces some output, it is responsability of the user to include the neccessary instruction to get the data (e.g., from Datalake) and to store the output upon completion (e.g., to Datalake). </li>
+<li>The underlying containers are executed <strong>without root privileges</strong>. Any container with root privileges will be automatically blocked. </li>
+<li>The underlying container images should be available to the cluster. It is possible to use public image registries (e.g., Docker Hub or GitHub) or to upload custom images to the cluster <strong>internal container registry</strong>.</li>
+<li>Each execution is associated to a user who has requested it, and therefore to the corresponding research unit. Besides audit aspects, this information is useful for the resource utilization and budget aspects.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>While it is possible to run an arbitrary container in this way, the provided AI platform provides support for common types of executables, such as Python-based jobs. See thr <a href="https://scc-digitalhub.github.io/docs/">Platform Documentation</a> for more details.</p>
+<h3 id="services">Services</h3>
+<p>It is also possible to deploy and execute <strong>services</strong> on the platform. This includes, e.g., inference services, APIs, LLM models and supporting tools like embedding ranking etc. Differently from jobs, the services run and are exposed permanently, until not stopped explicitly. As in case of jobs, the same restrictions apply: non-root execution, empty ephimeral storage, etc. </p>
+<p>Once deployed, the services are exposed within the unit namespace on a (predefined or user-specified) ports and are ready to serve the HTTP/TCP traffic. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>As in case of jobs, the AI platform provides support not only the possibility to deploy an arbitrary container, but also for common types of services, such as Python-based Serverless functions, LLMs compatible with OpenAI API, MLFlow model serving, etc. See thr <a href="https://scc-digitalhub.github.io/docs/">Platform Documentation</a> for more details.</p>
+<h3 id="data-management">Data Management</h3>
+<p>The storage infrastructure enabled is tightly integrated with the computing nodes and allows for managing both structured and unstructured datasets. The access to the data is based on credentials managed by the management layer. The credentials are temporal and are personal; currently no permanent and/or shared credentials are supported. When working outside the platform, the credentials may be obtained with the management <a href="https://scc-digitalhub.github.io/docs/0.15/cli/installation/">CLI</a>. When working in the platform the credentials are injected automatically in the corresponding context (e.g., workspace, job, service).</p>
+<p>While it is possible to use the persistent datastorage directly using the corresponding SDKs or tools, the management layer of the AI platform and the corresponding clients (Web, CLI, SDK) provide support for more advanced data management operations that include
+- Data / artifact / Model catalog
+- Versioning and metadata support with additional extra information (e.g., table schemas, previews, metrics, etc)
+- More efficient data storage
+- Transparent and easy to use APIs for registering, accessing, and managing the data artifacts. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.path", "content.code.copy"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
