@@ -7,6 +7,7 @@ extra_css:
 
 nav:
   - "architecture.md"
+  - "access.md"
   - "resources.md"
   - "migration_roadmap.md"
   - "troubleshooting.md"
