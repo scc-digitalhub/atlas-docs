@@ -40,6 +40,7 @@ nav:
   - Architecture: "index.md"
   - "access.md"
   - "resources.md"
+  - "how-to.md"
   - "migration_roadmap.md"
   - "troubleshooting.md"  
   - "links.md"
