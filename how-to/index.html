@@ -1,0 +1,890 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../resources/">
+      
+      
+        <link rel="next" href="../migration_roadmap/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>How To - ATLAS Cluster</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/portal_selection.css">
+    
+      <link rel="stylesheet" href="../stylesheets/colors.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="orange" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="Header"
+  >
+
+    <!-- Link to home -->
+    <a
+      href=".."
+      title="ATLAS Cluster"
+      class="md-header__button md-logo"
+      aria-label="ATLAS Cluster"
+      data-md-component="logo"
+    >
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ATLAS Cluster
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How To
+            
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="orange" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+
+      <!-- Search interface -->
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Repository information -->
+    
+      <div class="md-header__source">
+        <a href="https://github.com/scc-digitalhub/atlas-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    scc-digitalhub/atlas-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+</header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ATLAS Cluster" class="md-nav__button md-logo" aria-label="ATLAS Cluster" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ATLAS Cluster
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/scc-digitalhub/atlas-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    scc-digitalhub/atlas-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Access ATLAS tenants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resources and Quotas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    How To
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    How To
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run-llms-on-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run LLMs on Atlas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run LLMs on Atlas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-an-atlas-gpu-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose an Atlas GPU profile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Choose an Atlas GPU profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#precision-and-runtime-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precision and runtime compatibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serve-the-model-on-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serve the model on Atlas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnose-resource-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagnose resource problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-fine-tune-on-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Fine-tune on Atlas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional: Fine-tune on Atlas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-and-interruption-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage and interruption constraints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration_roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Migration and Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful Links and Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run-llms-on-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run LLMs on Atlas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run LLMs on Atlas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-an-atlas-gpu-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choose an Atlas GPU profile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Choose an Atlas GPU profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#precision-and-runtime-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precision and runtime compatibility
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serve-the-model-on-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serve the model on Atlas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnose-resource-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagnose resource problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-fine-tune-on-atlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Fine-tune on Atlas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional: Fine-tune on Atlas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-and-interruption-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage and interruption constraints
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="how-to">How To</h1>
+<h2 id="run-llms-on-atlas">Run LLMs on Atlas</h2>
+<p>Deploy an existing LLM on Atlas as an OpenAI-compatible API with DigitalHub's <code>vllmserve-text</code> runtime. This page explains how to choose Atlas resources and configure serving. For platform API details, see the serving section of the <a href="https://github.com/scc-digitalhub/digitalhub-tutorials/tree/0.16.x/s16-llm-fine-tuning">platform LLM tutorial (0.16.x)</a>.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Connect to your <a href="../access/">Atlas tenant</a> from the FBK network or VPN. Use its management UI and an interactive workspace configured for that tenant.</li>
+<li>Use the project setup and serving sections of the tutorial's <a href="https://github.com/scc-digitalhub/digitalhub-tutorials/blob/0.16.x/s16-llm-fine-tuning/notebook-llm.ipynb">notebook-llm.ipynb</a>.</li>
+<li>Obtain access to the chosen Hugging Face model, including approval for gated models, and create the project secret <code>HF_TOKEN</code>. Pass it to the service as shown in the tutorial; do not put credentials in source code or notebook cells.</li>
+<li>Check your tenant's GPU availability, computational allocation, and persistent-storage quota in <a href="../resources/">Resources and Quotas</a>.</li>
+</ul>
+<h3 id="choose-an-atlas-gpu-profile">Choose an Atlas GPU profile</h3>
+<p>GPU resources are <strong>not assigned by default</strong>. Select a GPU profile explicitly for the serving deployment.</p>
+<p>The names in the <a href="../resources/#resource-usage-and-declaration">Atlas profile table</a> are display labels, not necessarily the identifiers accepted by the SDK. In your tenant's configured workspace, inspect the available profiles:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">digitalhub</span> <span class="k">as</span> <span class="nn">dh</span>
+
+<span class="n">dh</span><span class="o">.</span><span class="n">get_k8s_resource_profiles</span><span class="p">()</span>
+</code></pre></div>
+<p>Use the exact identifier returned by the API or displayed in the workload submission UI. The platform tutorial uses <code>1xrtxa5000-shared</code> for serving; this is an example, not a guarantee that the same identifier or queue variant is available to your tenant. Do not derive identifiers by lowercasing the Atlas display labels or appending a queue suffix.</p>
+<table>
+<thead>
+<tr>
+<th>Atlas profile family</th>
+<th>GPUs</th>
+<th>VRAM per GPU</th>
+<th>Compute capability</th>
+<th>Maximum CPU / host RAM / ephemeral disk</th>
+<th>LLM considerations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1x5000</code> to <code>3x5000</code></td>
+<td>1-3 RTX 5000</td>
+<td>16Gi</td>
+<td>7.5</td>
+<td>13 cores / 39Gi / 39Gi per GPU</td>
+<td>Tight memory budget for an 8B model. FP16 weights alone take about 16 GB, leaving little room for inference overhead on one GPU; consider a smaller model or a runtime-supported quantized model.</td>
+</tr>
+<tr>
+<td><code>1xA5000</code> to <code>3xA5000</code></td>
+<td>1-3 RTX A5000</td>
+<td>24Gi</td>
+<td>8.6</td>
+<td>13 cores / 59Gi / 59Gi per GPU</td>
+<td>More headroom for single-GPU serving, but context length and concurrency still need sizing.</td>
+</tr>
+<tr>
+<td><code>1xV100</code> to <code>8xV100</code></td>
+<td>1-8 Tesla V100</td>
+<td>32Gi</td>
+<td>7.0</td>
+<td>10 cores / 61Gi / 61Gi per GPU</td>
+<td>More VRAM per GPU, but older architecture limits runtime and kernel compatibility; do not select solely by memory size.</td>
+</tr>
+</tbody>
+</table>
+<p>The CPU, host-memory, and ephemeral-disk limits above scale with GPU count; the complete values are in <a href="../resources/">Resources and Quotas</a>. Host RAM is <strong>not</strong> GPU VRAM. Lower CPU or host-memory requests may reduce quota usage, but do not increase GPU memory or change the profile's maximum limits.</p>
+<p>Multiple GPUs do not automatically act as one larger GPU. The model must be partitioned by a compatible runtime and configuration; selecting a multi-GPU profile alone does not enable vLLM tensor parallelism.</p>
+<h4 id="precision-and-runtime-compatibility">Precision and runtime compatibility</h4>
+<ul>
+<li>Use FP16 (<code>--dtype half</code>) rather than BF16 on the pre-Ampere RTX 5000 and V100 GPUs, subject to runtime support.</li>
+<li>RTX A5000 supports newer GPU features, but the selected container, CUDA/PyTorch build, attention backend, and quantization implementation must also support the hardware.</li>
+<li><a href="https://docs.vllm.ai/en/stable/getting_started/installation/gpu/">Current vLLM GPU requirements</a> specify compute capability 7.5 or higher. V100 has capability 7.0, so it is not a supported choice for current vLLM releases. Check the actual DigitalHub serving image and its version-specific requirements. Use a compatible RTX profile for the tutorial's vLLM workflow.</li>
+<li>Check support for the specific model, quantization format, and attention backend, not just the minimum compute capability.</li>
+</ul>
+<h3 id="serve-the-model-on-atlas">Serve the model on Atlas</h3>
+<p>Use the platform tutorial's project setup and model registration steps, then create a <code>vllmserve-text</code> function for your existing model. For a base model without an adapter:</p>
+<div class="highlight"><pre><span></span><code><span class="n">proj</span> <span class="o">=</span> <span class="n">dh</span><span class="o">.</span><span class="n">get_or_create_project</span><span class="p">(</span><span class="s2">&quot;atlas-llm-serving&quot;</span><span class="p">)</span>
+<span class="n">base_model</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_model</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;base-model&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;huggingface&quot;</span><span class="p">,</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;huggingface://meta-llama/Llama-3.1-8B&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">vllm_func</span> <span class="o">=</span> <span class="n">proj</span><span class="o">.</span><span class="n">new_function</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;vllm-text-serve&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vllmserve-text&quot;</span><span class="p">,</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;base-model&quot;</span><span class="p">,</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">base_model</span><span class="o">.</span><span class="n">key</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Replace the model identifier with the model you want to serve and can access. No adapter is required. If you already have a compatible adapter, register it and add the tutorial's <code>adapters</code> configuration; serving then needs both the base model and adapter.</p>
+<p>Choose an available, runtime-compatible GPU profile and use the <strong>reserved queue</strong> for an endpoint that requires continuity. The tutorial's <code>1xrtxa5000-shared</code> example is interruptible and should only be used for disposable tests that tolerate downtime.</p>
+<p>Adapt the tutorial's <code>vllm_func.run(...)</code> call:</p>
+<ul>
+<li>Set <code>profile</code> to the exact identifier for your selected GPU and queue.</li>
+<li>Start with a shorter context, for example <code>args=["--dtype", "half", "--gpu_memory_utilization", "0.90", "--max_model_len", "2048"]</code>, and tune after checking startup logs and memory usage. These are sizing examples, not guaranteed working values for every model.</li>
+<li>Do not copy the tutorial's <code>32768</code> context length or <code>0.95</code> GPU-memory utilization blindly. Model weights, any adapter, runtime buffers, KV cache, and concurrent requests all need VRAM. Longer contexts and more simultaneous requests increase demand.</li>
+<li>Keep host-memory and ephemeral-disk requests within the selected profile's limits. The tutorial's <code>resources={"mem": "24Gi", "disk": "20Gi"}</code> requests host RAM and ephemeral disk, <strong>not</strong> GPU VRAM. Budget disk for model downloads and staging as well.</li>
+</ul>
+<p>Wait for the service to become ready, then use its platform-provided endpoint and the tutorial's OpenAI-compatible inference request. Set the request's model name to the one exposed by your deployment (<code>base-model</code> in the example above, or <code>adapter</code> when using the tutorial's registered adapter). Follow <a href="../access/">Atlas access requirements</a>; do not assume the endpoint is publicly reachable.</p>
+<h3 id="diagnose-resource-problems">Diagnose resource problems</h3>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Job or service remains pending</td>
+<td>Exact profile identifier, tenant allocation, queue, requested GPU type/count, CPU and host-memory requests, and current capacity. Reserved capacity does not guarantee an immediate start.</td>
+</tr>
+<tr>
+<td>CUDA out of memory</td>
+<td>Per-GPU VRAM, model precision, sequence length, batch sizes, serving context, and concurrency. A higher host-memory request does not fix GPU exhaustion.</td>
+</tr>
+<tr>
+<td>Host-memory termination or disk-full error</td>
+<td>Host RAM, ephemeral-disk limits, PVC free space, and cache/checkpoint paths. These are separate from VRAM.</td>
+</tr>
+<tr>
+<td>Unsupported GPU, dtype, or kernel error</td>
+<td>GPU compute capability and the container's CUDA, PyTorch, vLLM, quantization, and attention-backend compatibility.</td>
+</tr>
+<tr>
+<td>Workload restarts or endpoint disappears</td>
+<td>Shared-queue eviction, persistent output paths, and application-level resume support.</td>
+</tr>
+</tbody>
+</table>
+<p>Consult <a href="../resources/">Resources and Quotas</a> for current limits and <a href="../troubleshooting/">Troubleshooting</a> for general Atlas issues.</p>
+<h3 id="optional-fine-tune-on-atlas">Optional: Fine-tune on Atlas</h3>
+<p>Fine-tuning is only needed if you want to adapt a model; it is not a prerequisite for serving. Open the tutorial notebook with its <code>src/</code> directory and <code>requirements.txt</code> from the same branch. Use the tutorial's Python 3.11 training environment and dependencies rather than upgrading packages independently.</p>
+<p>The tutorial's training script uses FP16 compute, eager attention, and 4-bit NF4 quantization by default. Keep those settings as the starting point on RTX 5000 and V100, and check container compatibility. The tutorial's training profile <code>1xrtx5000</code> is an example; discover the exact identifier available to your tenant. The script's <code>device_map="auto"</code> is not a substitute for a tested distributed-training setup.</p>
+<p>Training with QLoRA produces an adapter, not a standalone quantized model for serving. Serving still needs the base model, and its memory footprint must be sized independently of training.</p>
+<p>Follow the tutorial's project, secret, function creation, and image-build steps. In its training submission:</p>
+<ol>
+<li>Replace <code>profile</code> with a GPU profile available to your tenant.</li>
+<li>Start with <code>quantization=4</code>, <code>train_batch_size=1</code>, and a modest <code>max_sequence_length</code> (for example, 1024). These are starting points, not a guarantee that a model will fit. Size evaluation batches too.</li>
+<li>Use gradient accumulation to increase the effective batch size without increasing the per-device batch size. If CUDA runs out of memory, reduce sequence length and per-device training/evaluation batches before requesting more GPUs.</li>
+<li>Mount persistent storage at <code>/app/local_data</code>, as in the notebook. Set <code>HF_HOME</code> to <code>/app/local_data/huggingface</code> so model downloads use that volume.</li>
+</ol>
+<p>For example, after building <code>function_train</code> as described in the tutorial:</p>
+<div class="highlight"><pre><span></span><code><span class="n">TRAIN_PROFILE</span> <span class="o">=</span> <span class="s2">&quot;&lt;exact GPU profile identifier from your tenant&gt;&quot;</span>
+
+<span class="n">train_run</span> <span class="o">=</span> <span class="n">function_train</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">action</span><span class="o">=</span><span class="s2">&quot;job&quot;</span><span class="p">,</span>
+    <span class="n">profile</span><span class="o">=</span><span class="n">TRAIN_PROFILE</span><span class="p">,</span>
+    <span class="n">parameters</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;model_id&quot;</span><span class="p">:</span> <span class="s2">&quot;meta-llama/Llama-3.1-8B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="s2">&quot;atlas-llm-adapter&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hf_dataset_name&quot;</span><span class="p">:</span> <span class="s2">&quot;team-bay/data-science-qa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;train_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;dev_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;DataScienceDataset.csv&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;quantization&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;train_batch_size&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;eval_batch_size&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;max_sequence_length&quot;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">secrets</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HF_TOKEN&quot;</span><span class="p">],</span>
+    <span class="n">envs</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;HF_HOME&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;/app/local_data/huggingface&quot;</span><span class="p">}],</span>
+    <span class="n">volumes</span><span class="o">=</span><span class="p">[{</span>
+        <span class="s2">&quot;volume_type&quot;</span><span class="p">:</span> <span class="s2">&quot;persistent_volume_claim&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;atlas-llm-data&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mount_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/app/local_data&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;spec&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="s2">&quot;50Gi&quot;</span><span class="p">},</span>
+    <span class="p">}],</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Replace the placeholder before running. The model and dataset above come from the platform example; use separate training and validation splits for a meaningful evaluation. The 50Gi volume is an illustrative starting size, not a storage requirement or an assurance of sufficient space.</p>
+<h4 id="storage-and-interruption-constraints">Storage and interruption constraints</h4>
+<ul>
+<li>Budget persistent storage for the downloaded base model, datasets, Hugging Face cache, checkpoints, and final adapter/tokenizer files. A 4-bit training configuration does not mean the downloaded base-model files occupy only 4 bits per parameter.</li>
+<li>The tutorial writes checkpoints under <code>/app/local_data/checkpoints/ground</code> and final weights under <code>/app/local_data/weights/ground</code>. Keep these paths on the persistent volume. Ephemeral disk is limited by the profile and is not suitable for durable outputs.</li>
+<li>PVC count, PVC capacity, and S3 capacity have <a href="../resources/#quotas">hard quota limits</a>. Check available capacity before requesting a volume; GPU availability does not imply storage availability.</li>
+<li>Use the reserved queue for important training runs. Shared-queue jobs may be evicted at any time. Persist checkpoints and implement and test checkpoint resume before relying on shared capacity: the tutorial calls <code>trainer.train()</code> without an explicit <code>resume_from_checkpoint</code>, so a platform restart alone does not guarantee training resumes from its last checkpoint.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.path", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

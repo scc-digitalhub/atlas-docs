@@ -1,0 +1,22 @@
+[data-md-color-scheme="orange"] {
+    --md-primary-fg-color:             #db6a13;
+    --md-primary-fg-color--light:      #e27c2d;
+    --md-primary-fg-color--dark:       #ba5d16;
+    --md-accent-fg-color:              #ad530f;
+    --md-accent-fg-color--transparent: #ffa5511a;
+    --md-typeset-a-color:              #db6a13;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color:             #db6a13;
+    --md-primary-fg-color--light:      #e27c2d;
+    --md-primary-fg-color--dark:       #ba5d16;
+    --md-accent-fg-color:              #ad530f;
+    --md-accent-fg-color--transparent: #ffa5511a;
+    --md-typeset-a-color:              #db6a13;
+    --md-hue: 25;
+}
+
+.md-nav__item .md-nav__link--active, .md-typeset a {
+    color: #db6a13;
+}
